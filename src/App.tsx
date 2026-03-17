@@ -38,6 +38,37 @@ const Logo = ({ className }: { className?: string }) => (
   </div>
 );
 
+const AntIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    {/* Body parts */}
+    <circle cx="12" cy="6" r="2" /> {/* Head */}
+    <ellipse cx="12" cy="11" rx="2.5" ry="3" /> {/* Thorax */}
+    <ellipse cx="12" cy="18" rx="3" ry="4" /> {/* Abdomen */}
+    
+    {/* Legs - Left */}
+    <path d="M9.5 10 L6 9" />
+    <path d="M9.5 12 L6 13" />
+    <path d="M10 17 L7 19" />
+    
+    {/* Legs - Right */}
+    <path d="M14.5 10 L18 9" />
+    <path d="M14.5 12 L18 13" />
+    <path d="M14 17 L17 19" />
+    
+    {/* Antennae */}
+    <path d="M11 4 L9 2" />
+    <path d="M13 4 L15 2" />
+  </svg>
+);
+
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,7 +211,7 @@ const WhyUs = () => (
           {[
             { icon: Bug, name: "바퀴벌레", color: "text-zinc-600", bg: "bg-zinc-50" },
             { icon: Mouse, name: "쥐", color: "text-zinc-600", bg: "bg-zinc-50" },
-            { icon: Search, name: "개미", color: "text-zinc-600", bg: "bg-zinc-50" },
+            { icon: AntIcon, name: "개미", color: "text-zinc-600", bg: "bg-zinc-50" },
             { icon: Wind, name: "비행해충", color: "text-zinc-600", bg: "bg-zinc-50" },
             { icon: Sparkles, name: "특수해충", color: "text-zinc-600", bg: "bg-zinc-50" },
           ].map((pest, idx) => (
@@ -602,17 +633,58 @@ const BlogSection = () => {
 const Footer = () => (
   <footer className="bg-black text-white py-16 border-t border-white/10">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
-        <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-          <Logo />
-          <p className="text-gray-400 text-sm mt-4">전문 방역 서비스의 기준, 벅스코가 함께합니다.</p>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
+        <div className="col-span-1 lg:col-span-1">
+          <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm inline-block mb-6">
+            <Logo />
+          </div>
+          <p className="text-gray-400 text-sm leading-relaxed">
+            전문 방역 서비스의 기준, 벅스코가 함께합니다.<br />
+            해충으로부터 안전하고 쾌적한 환경을 약속드립니다.
+          </p>
         </div>
-        <div className="flex flex-wrap gap-6 sm:gap-8">
-          <a href="https://blog.naver.com/bughunter119/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">네이버 블로그</a>
+        
+        <div className="space-y-6">
+          <h4 className="text-lg font-bold text-white border-l-4 border-red-500 pl-3">벅스코 본사</h4>
+          <div className="space-y-2">
+            <p className="text-gray-400 text-sm flex items-center gap-2">
+              <Phone size={14} className="text-red-500" />
+              대표번호: <span className="text-white font-bold">1522-7678</span>
+            </p>
+            <a 
+              href="https://blog.naver.com/bughunter119/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              <MessageSquareText size={14} className="text-green-500" />
+              공식 블로그 바로가기
+            </a>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <h4 className="text-lg font-bold text-white border-l-4 border-blue-500 pl-3">벅스코 안양센터</h4>
+          <div className="space-y-2">
+            <p className="text-gray-400 text-sm flex items-center gap-2">
+              <Phone size={14} className="text-blue-500" />
+              상담번호: <span className="text-white font-bold">1522-8916</span>
+            </p>
+            <a 
+              href="https://blog.naver.com/uhmamama" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              <MessageSquareText size={14} className="text-green-500" />
+              안양센터 블로그 바로가기
+            </a>
+          </div>
         </div>
       </div>
-      <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-gray-600 italic">
-        <p>Financial Clarity You Can Trust</p>
+      
+      <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4 text-[10px] sm:text-xs text-gray-600 uppercase tracking-widest font-bold">
+        <p>Pest Control Expertise & Professional Hygiene Solutions</p>
         <p>© 2026 BUGSCO. All rights reserved.</p>
       </div>
     </div>
