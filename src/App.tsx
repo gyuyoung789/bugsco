@@ -209,26 +209,30 @@ const WhyUs = () => (
       <div className="mt-24 pt-16 border-t border-gray-100">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {[
-            { icon: Bug, name: "바퀴벌레", color: "text-zinc-600", bg: "bg-zinc-50" },
-            { icon: Mouse, name: "쥐", color: "text-zinc-600", bg: "bg-zinc-50" },
-            { icon: AntIcon, name: "개미", color: "text-zinc-600", bg: "bg-zinc-50" },
-            { icon: Wind, name: "비행해충", color: "text-zinc-600", bg: "bg-zinc-50" },
-            { icon: Sparkles, name: "특수해충", color: "text-zinc-600", bg: "bg-zinc-50" },
+            { icon: Bug, name: "바퀴벌레", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/222281689163" },
+            { icon: Mouse, name: "쥐", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/223609693214" },
+            { icon: AntIcon, name: "개미", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/221949418925" },
+            { icon: Wind, name: "비행해충", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/221491283895" },
+            { icon: Sparkles, name: "특수해충", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/221506131804" },
           ].map((pest, idx) => (
-            <motion.div
+            <motion.a
               key={idx}
+              href={pest.link || "#"}
+              target={pest.link ? "_blank" : undefined}
+              rel={pest.link ? "noopener noreferrer" : undefined}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               className="flex flex-col items-center group cursor-pointer"
+              onClick={(e) => !pest.link && e.preventDefault()}
             >
               <div className={`w-20 h-20 ${pest.bg} rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
                 <pest.icon className={`w-10 h-10 ${pest.color}`} />
               </div>
               <span className="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition-colors">{pest.name}</span>
               <div className="mt-2 w-8 h-1 bg-transparent group-hover:bg-blue-600 transition-all rounded-full" />
-            </motion.div>
+            </motion.a>
           ))}
         </div>
         <p className="text-center text-gray-400 text-sm mt-12 italic">
