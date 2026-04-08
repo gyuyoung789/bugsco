@@ -236,7 +236,7 @@ const WhyUs = () => (
           ))}
         </div>
         <p className="text-center text-gray-400 text-sm mt-12 italic">
-          * 각 아이콘을 클릭하시면 해당 해충에 대한 자세한 방제 정보를 확인하실 수 있습니다. (준비 중)
+          * 각 아이콘을 클릭하시면 해당 해충에 대한 자세한 방제 정보를 확인하실 수 있습니다.
         </p>
       </div>
     </div>
