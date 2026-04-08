@@ -105,10 +105,15 @@ const Hero = () => (
           <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
             합리적인 가격으로 완벽한 해충 제거, 전문가의 꼼꼼하고 안전한 방제 노하우로 만족스러운 서비스를 제공합니다.
           </p>
-          <button className="group flex items-center gap-2 bg-[#FEE500] hover:bg-[#FADA0A] text-black px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl shadow-yellow-500/20">
+          <a 
+            href="http://pf.kakao.com/_SxcXdX/chat" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 bg-[#FEE500] hover:bg-[#FADA0A] text-black px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl shadow-yellow-500/20"
+          >
             카카오톡 채널 상담하기
             <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </motion.div>
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
@@ -236,7 +241,7 @@ const WhyUs = () => (
           ))}
         </div>
         <p className="text-center text-gray-400 text-sm mt-12 italic">
-          * 각 아이콘을 클릭하시면 해당 해충에 대한 자세한 방제 정보를 확인하실 수 있습니다.
+          * 각 아이콘을 클릭하시면 해당 해충에 대한 자세한 방제 정보를 확인하실 수 있습니다. (준비 중)
         </p>
       </div>
     </div>
