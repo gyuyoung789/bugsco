@@ -217,7 +217,7 @@ const WhyUs = () => (
             { icon: Bug, name: "바퀴벌레", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/222281689163" },
             { icon: Mouse, name: "쥐", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/223609693214" },
             { icon: AntIcon, name: "개미", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/221949418925" },
-            { icon: Wind, name: "비행해충", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/221491283895" },
+            { icon: Wind, name: "비래해충", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/221491283895" },
             { icon: Sparkles, name: "특수해충", color: "text-zinc-600", bg: "bg-zinc-50", link: "https://m.blog.naver.com/bughunter119/221506131804" },
           ].map((pest, idx) => (
             <motion.a
@@ -241,7 +241,7 @@ const WhyUs = () => (
           ))}
         </div>
         <p className="text-center text-gray-400 text-sm mt-12 italic">
-          * 각 아이콘을 클릭하시면 해당 해충에 대한 자세한 방제 정보를 확인하실 수 있습니다. (준비 중)
+          * 각 아이콘을 클릭하시면 해당 해충에 대한 자세한 방제 정보를 확인하실 수 있습니다.
         </p>
       </div>
     </div>
