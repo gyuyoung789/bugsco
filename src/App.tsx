@@ -27,12 +27,12 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const Logo = ({ className }: { className?: string }) => (
+const Logo = ({ className, white }: { className?: string, white?: boolean }) => (
   <div className={cn("flex items-center", className)}>
     <img 
       src="/logo.png" 
       alt="BUGSCO Logo" 
-      className="h-10 sm:h-14 w-auto object-contain"
+      className={cn("h-10 sm:h-14 w-auto object-contain", white && "brightness-0 invert")}
       referrerPolicy="no-referrer"
     />
   </div>
@@ -408,34 +408,48 @@ const ServiceSection = ({ type }: { type: 'residential' | 'commercial' }) => {
 };
 
 const Pricing = () => (
-  <section className="py-24 bg-gray-900 text-white">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section className="py-24 bg-[#3349BF] text-white relative overflow-hidden">
+    {/* Decorative background elements */}
+    <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl" />
+    </div>
+
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="text-center mb-16">
+        <p className="text-blue-100 font-bold tracking-widest uppercase text-sm mb-4">Pricing</p>
+        <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">합리적인 서비스 비용</h2>
+        <p className="text-blue-100 max-w-2xl mx-auto">
+          고객님의 환경에 맞는 최적의 방제 서비스를 투명한 가격으로 제공합니다.
+        </p>
+      </div>
+
       <div className="grid md:grid-cols-2 gap-8">
         <motion.div 
           whileHover={{ y: -10 }}
-          className="bg-white/5 backdrop-blur-lg p-10 rounded-3xl border border-white/10"
+          className="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20 shadow-2xl shadow-blue-900/20"
         >
           <div className="flex justify-between items-start mb-8">
             <div>
-              <h3 className="text-2xl font-bold mb-2">해충퇴치</h3>
-              <p className="text-gray-400 text-sm">가정집, 영업소</p>
+              <h3 className="text-2xl font-bold mb-2">해충퇴치 (1회 시공)</h3>
+              <p className="text-blue-100 text-sm">가정집, 일반 영업소</p>
             </div>
-            <div className="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <div className="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               One-time
             </div>
           </div>
           <div className="mb-8">
             <span className="text-5xl font-black">80,000~</span>
-            <span className="text-gray-400 ml-2">/ 1회</span>
+            <span className="text-blue-100 ml-2">/ 1회</span>
           </div>
           <ul className="space-y-4 mb-10">
             {[
               "평수와 환경에 따른 가격 결정",
-              "1회 시공 or 월관리",
-              "10가구 이상 동시방역 할인"
+              "1회 시공으로 완벽한 박멸",
+              "10가구 이상 동시방역 할인 혜택"
             ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-gray-300">
-                <CheckCircle2 size={18} className="text-blue-500" />
+              <li key={i} className="flex items-center gap-3 text-white">
+                <CheckCircle2 size={18} className="text-blue-300" />
                 {item}
               </li>
             ))}
@@ -444,7 +458,7 @@ const Pricing = () => (
             href="https://m.blog.naver.com/bughunter119/221073752100" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block w-full py-4 bg-white text-gray-900 rounded-xl font-bold hover:bg-gray-100 transition-colors text-center"
+            className="block w-full py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-blue-50 transition-colors text-center shadow-lg"
           >
             자세히보기
           </a>
@@ -452,29 +466,29 @@ const Pricing = () => (
 
         <motion.div 
           whileHover={{ y: -10 }}
-          className="bg-white/5 backdrop-blur-lg p-10 rounded-3xl border border-white/10"
+          className="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20 shadow-2xl shadow-blue-900/20"
         >
           <div className="flex justify-between items-start mb-8">
             <div>
-              <h3 className="text-2xl font-bold mb-2">정기 관리</h3>
-              <p className="text-gray-400 text-sm">요식업소, 영업장</p>
+              <h3 className="text-2xl font-bold mb-2">정기 관리 (월 시공)</h3>
+              <p className="text-blue-100 text-sm">요식업소, 대형 사업장</p>
             </div>
-            <div className="bg-indigo-600/20 text-indigo-400 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <div className="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               Subscription
             </div>
           </div>
           <div className="mb-8">
             <span className="text-5xl font-black">50,000~</span>
-            <span className="text-gray-400 ml-2">/ 월</span>
+            <span className="text-blue-100 ml-2">/ 월</span>
           </div>
           <ul className="space-y-4 mb-10">
             {[
-              "현장 방문하여 맞춤식 견적 결정 및 시공방법 확정",
-              "1회 시공 or 월관리",
-              "장기관리 할인"
+              "현장 방문 맞춤식 견적 및 시공",
+              "지속적인 모니터링 및 예방 관리",
+              "장기 계약 시 추가 할인 적용"
             ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-gray-300">
-                <CheckCircle2 size={18} className="text-indigo-500" />
+              <li key={i} className="flex items-center gap-3 text-white">
+                <CheckCircle2 size={18} className="text-blue-300" />
                 {item}
               </li>
             ))}
@@ -483,7 +497,7 @@ const Pricing = () => (
             href="https://m.blog.naver.com/bughunter119/221073752100" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block w-full py-4 bg-white text-gray-900 rounded-xl font-bold hover:bg-gray-100 transition-colors text-center"
+            className="block w-full py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-blue-50 transition-colors text-center shadow-lg"
           >
             자세히보기
           </a>
@@ -640,12 +654,12 @@ const BlogSection = () => {
 };
 
 const Footer = () => (
-  <footer className="bg-black text-white py-16 border-t border-white/10">
+  <footer className="bg-[#454545] text-white py-16 border-t border-white/10">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
         <div className="col-span-1 lg:col-span-1">
-          <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm inline-block mb-6">
-            <Logo />
+          <div className="mb-6">
+            <Logo white />
           </div>
           <p className="text-gray-400 text-sm leading-relaxed">
             전문 방역 서비스의 기준, 벅스코가 함께합니다.<br />
